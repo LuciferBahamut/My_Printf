@@ -26,6 +26,9 @@ OBJ	=	$(SRC:.c=.o)
 all	:	$(OBJ)
 		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(CPPFLAGS)
 
+unit_test	:
+		$(CC) -o unit_tests src/main.c unit_tests.c -lcriterion
+
 clean	:
 		rm -f $(OBJ)
 
