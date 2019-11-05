@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <criterion/criterion.h>
+#include <criterion/redirect.h>
 
 void my_putchar(char c);
 int my_putstr(char const *str);
