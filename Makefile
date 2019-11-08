@@ -7,27 +7,29 @@
 
 NAME	=	libmy.a
 
-SRC	=	src/main.c \
-		src/disp_stdarg.c \
-		src/sum_stdarg.c \
-		src/my_putchar.c \
-		src/my_putstr.c \
-		src/my_strlen.c \
-		src/my_put_nbr.c
+SRC	=	lib/my/my_printf.c \
+		lib/my/disp_stdarg.c \
+		lib/my/sum_stdarg.c \
+		lib/my/my_putchar.c \
+		lib/my/my_putstr.c \
+		lib/my/my_strlen.c \
+		lib/my/my_put_nbr.c
 
 CC	=	gcc
 
+AR	=	ar rc
+
 CPPFLAGS	=	-I./include/
 
-CFFLAGS	=	-W -Wextra -Wall -g3
+CFFLAGS	=	tests/unit_tests.c -I./include -lcriterion
 
 OBJ	=	$(SRC:.c=.o)
 
 all	:	$(OBJ)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(CPPFLAGS)
+		$(AR) $(NAME) $(OBJ)
 
 unit_test	:
-		$(CC) -o unit_tests src/main.c unit_tests.c -lcriterion
+		$(CC) -o unit_tests lib/my/my_printf.c $(CFFLAGS) 
 
 clean	:
 		rm -f $(OBJ)
@@ -39,4 +41,4 @@ fclean	:	clean
 
 re	:	fclean all
 
-.PHONY	:	all clean fclean re
+.PHONY	:	all unit_test clean fclean re
