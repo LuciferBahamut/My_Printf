@@ -9,6 +9,8 @@
 
 int my_printf(const char *fmt, ...)
 {
-    
-    return (0); 
+    va_list ap;
+
+    disp_stdarg(fmt, ap);
+    return (0);
 }

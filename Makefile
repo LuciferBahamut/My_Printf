@@ -29,7 +29,7 @@ all	:	$(OBJ)
 		$(AR) $(NAME) $(OBJ)
 
 unit_test	:
-		$(CC) -o unit_tests lib/my/my_printf.c $(CFFLAGS) 
+		$(CC) -o unit_tests lib/my/*.c $(CFFLAGS) 
 
 clean	:
 		rm -f $(OBJ)
