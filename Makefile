@@ -8,16 +8,20 @@
 NAME	=	libmy.a
 
 SRC	=	lib/my/my_printf.c \
-		lib/my/disp_stdarg.c \
-		lib/my/sum_stdarg.c \
 		lib/my/my_putchar.c \
 		lib/my/my_putstr.c \
 		lib/my/my_strlen.c \
-		lib/my/my_put_nbr.c
+		lib/my/my_put_nbr.c \
+		lib/my/my_strcpy.c \
+		lib/my/error_handling.c \
+		lib/my/gest_flag.c \
+		lib/my/display_with_flag.c
 
 CC	=	gcc
 
 AR	=	ar rc
+
+DEFLAGS	=	-W -Wextra -Wall -g3
 
 CPPFLAGS	=	-I./include/
 
@@ -27,6 +31,9 @@ OBJ	=	$(SRC:.c=.o)
 
 all	:	$(OBJ)
 		$(AR) $(NAME) $(OBJ)
+
+build 	:	$(OBJ)
+		$(CC) $(DEFLAGS) -o $(NAME) $(OBJ) $(CPPFLAGS)
 
 unit_test	:
 		$(CC) -o unit_tests lib/my/*.c $(CFFLAGS) 
@@ -41,4 +48,4 @@ fclean	:	clean
 
 re	:	fclean all
 
-.PHONY	:	all unit_test clean fclean re
+.PHONY	:	all build unit_test clean fclean re
