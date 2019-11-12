@@ -23,5 +23,6 @@ char *my_strcpy(char *dest, char const *src);
 void gest_flag(char const *fmt, va_list ap);
 int error_handling(char const *fmt);
 void display(char const *fmt, va_list ap);
+char *my_revstr(char *str);
 
 #endif

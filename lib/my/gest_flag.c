@@ -15,15 +15,15 @@ void next_flag(char const *fmt, va_list ap)
             switch(fmt[i]) {
             case 'i' : my_put_nbr(va_arg(ap, int));
                 break;
-            case 'o' : my_putchar('o');
+            case 'o' : convert_base(8, va_arg(ap, int), 1);
                 break;
-            case 'u' : my_putchar('u');
+            case 'u' : my_put_nbr(va_arg(ap,int));
                 break;
-            case 'x' : my_putchar('x');
+            case 'x' : convert_base(16, va_arg(ap, int), 2);
                 break;
-            case 'X' : my_putchar('X');
+            case 'X' : convert_base(16, va_arg(ap, int), 3);
                 break;
-            case 'p' : my_putchar('p');
+            case 'p' : convert_base(16, va_arg(ap, int), 4);
                 break;
             }
         }
@@ -42,9 +42,9 @@ void gest_flag(char const *fmt, va_list ap)
                 break;
             case 'c' : my_putchar((char) va_arg(ap, int));
                 break;
-            case 'b' : my_putchar('b');
+            case 'b' : convert_base(2, va_arg(ap, int), 0);
                 break;
-            case 'S' : my_putchar('S');
+            case 'S' : convert_base(8, va_arg(ap, int), 1);
                 break;
             case '%' : my_putchar('%');
                 break;
