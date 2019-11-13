@@ -14,8 +14,7 @@ SRC	=	lib/my/my_printf.c \
 		lib/my/my_put_nbr.c \
 		lib/my/my_convert_base.c \
 		lib/my/error_handling.c \
-		lib/my/gest_flag.c \
-		lib/my/display_with_flag.c
+		lib/my/gest_flag.c
 
 CC	=	gcc
 
