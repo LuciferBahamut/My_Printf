@@ -31,7 +31,7 @@ int other_flag(char const *fmt)
     return (84);
 }
 
-int error_handling(char const *fmt)
+int first_flag(char const *fmt)
 {
     for (int i = 0; fmt[i] != '\0'; i++) {
         if (fmt[i] == '%') {
@@ -54,4 +54,13 @@ int error_handling(char const *fmt)
         }
     }
     return (84);
+}
+
+int error_handling(char const *fmt)
+{
+    for (int i = 0; fmt[i] != '\0'; i++) {
+        if (fmt[i] == '%')
+            first_flag(fmt);
+    }
+    return (0);
 }

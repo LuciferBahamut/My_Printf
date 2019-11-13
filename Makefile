@@ -10,9 +10,9 @@ NAME	=	libmy.a
 SRC	=	lib/my/my_printf.c \
 		lib/my/my_putchar.c \
 		lib/my/my_putstr.c \
-		lib/my/my_strlen.c \
+		lib/my/my_revstr.c \
 		lib/my/my_put_nbr.c \
-		lib/my/my_strcpy.c \
+		lib/my/my_convert_base.c \
 		lib/my/error_handling.c \
 		lib/my/gest_flag.c \
 		lib/my/display_with_flag.c
@@ -25,7 +25,7 @@ DEFLAGS	=	-W -Wextra -Wall -g3
 
 CPPFLAGS	=	-I./include/
 
-CFFLAGS	=	tests/unit_tests.c -I./include -lcriterion
+CFFLAGS	=	tests/unit_tests.c -I./include --coverage -lcriterion
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -35,7 +35,7 @@ all	:	$(OBJ)
 build 	:	$(OBJ)
 		$(CC) $(DEFLAGS) -o $(NAME) $(OBJ) $(CPPFLAGS)
 
-unit_test	:
+TU	:
 		$(CC) -o unit_tests lib/my/*.c $(CFFLAGS) 
 
 clean	:
@@ -44,8 +44,10 @@ clean	:
 fclean	:	clean
 		rm -f $(NAME)
 		rm -f *# \
-		rm -f *~
+		rm -f *~ \
+		rm -f *.gcda \
+		rm -f *.gcno
 
 re	:	fclean all
 
-.PHONY	:	all build unit_test clean fclean re
+.PHONY	:	all build TU clean fclean re

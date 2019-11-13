@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-char *convert_binary(int const base, va_arg nb, char *result)
+char *convert_binary(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
@@ -16,7 +16,7 @@ char *convert_binary(int const base, va_arg nb, char *result)
     return (result);
 }
 
-char *convert_octal(int const base, va_arg nb, char *result)
+char *convert_octal(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
@@ -25,7 +25,7 @@ char *convert_octal(int const base, va_arg nb, char *result)
     return (result);
 }
 
-char *convert_hexa(int const base, va_arg nb, char *result)
+char *convert_hexa(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
@@ -48,7 +48,7 @@ char *convert_hexa(int const base, va_arg nb, char *result)
     return (result);
 }
 
-char *convert_hexa_maj(int const base, va_arg nb, char *result)
+char *convert_hexa_maj(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
@@ -71,7 +71,7 @@ char *convert_hexa_maj(int const base, va_arg nb, char *result)
     return (result);
 }
 
-void convert_base(int const base, va_arg nb, int i)
+void convert_base(int const base, int nb, int i)
 {
     char *result = malloc(nb + 1);
     char *dis = "0x";
