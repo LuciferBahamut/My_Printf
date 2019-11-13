@@ -12,26 +12,25 @@ int convert_octal_i(int nb)
     int result = 0;
 
     for (int base = 8; nb != 0; nb /= base) {
-        result = (nb % base) + '0';
+        result = (nb % base);
     }
     return (result);
 }
 
-void nprint(char const *fmt, va_list ap)
+void nprint(va_list ap)
 {
     char *str = va_arg(ap, char *);
     int nbo;
-    char *result = malloc(3 + 1);
-    
+        
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= ' ' && str[i] < '%' || str[i] <= 127 && str[i] > '%')
+        if (str[i] >= ' ' && str[i] < 127)
             my_putchar(str[i]);
-        if (str[i] <= ' ' && str[i] < '%' || str[i] >= 127 && str[i] < '%') {
+        if (str[i] < ' ' || str[i] >= 127) {
             nbo = str[i];
             my_putchar('\\');
             nbo = convert_octal_i(nbo);
             if (nbo <= 7)
-                my_putstr("00");
+                my_putchar('0');
             if (nbo <= 77)
                 my_putchar('0');
             my_put_nbr(nbo);
@@ -76,7 +75,7 @@ void gest_flag(char const *fmt, va_list ap)
                 break;
             case 'b' : convert_base(2, va_arg(ap, int), 0);
                 break;
-            case 'S' : nprint(fmt, ap);
+            case 'S' : nprint(ap);
                 break;
             case '%' : my_putchar('%');
                 break;
