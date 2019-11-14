@@ -75,7 +75,7 @@ void convert_base(int const base, int nb, int i)
 {
     char *result = malloc(nb + 1);
     char *dis = "0x";
-    
+
     switch(i) {
     case 0 : convert_binary(base, nb, result);
         break;

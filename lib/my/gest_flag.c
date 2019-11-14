@@ -21,7 +21,7 @@ void nprint(va_list ap)
 {
     char *str = va_arg(ap, char *);
     int nbo;
-        
+
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] >= ' ' && str[i] < 127)
             my_putchar(str[i]);
