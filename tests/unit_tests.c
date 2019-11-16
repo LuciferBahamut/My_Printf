@@ -87,7 +87,7 @@ Test(my_printf, simple_hexa_flagp, .init = redirect_all_std)
 
 Test(my_printf, mix_string_and_number, .init = redirect_all_std)
 {
-    my_printf("%s %d","hello world", 42);
+    my_printf("%s %d", "hello world", 42);
     cr_assert_stdout_eq_str("hello world 42");
 }
 
