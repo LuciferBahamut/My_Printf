@@ -31,11 +31,11 @@ OBJ	=	$(SRC:.c=.o)
 all	:	$(OBJ)
 		$(AR) $(NAME) $(OBJ)
 
-build 	:	$(OBJ)
+build	:	$(OBJ)
 		$(CC) $(DEFLAGS) -o $(NAME) $(OBJ) $(CPPFLAGS)
 
 TU	:
-		$(CC) -o unit_tests lib/my/*.c $(CFFLAGS) 
+		$(CC) -o unit_tests lib/my/*.c $(CFFLAGS)
 
 clean	:
 		rm -f $(OBJ)
