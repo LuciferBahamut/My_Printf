@@ -18,7 +18,6 @@ int my_printf(const char *fmt, ...);
 void my_putchar(char c);
 int my_putstr(char const *str);
 int my_put_nbr(int nb);
-void gest_flag(char const *fmt, va_list ap);
 int error_handling(char const *fmt);
 void display(char const *fmt, va_list ap);
 char *my_revstr(char *str);

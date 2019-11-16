@@ -38,51 +38,42 @@ void nprint(va_list ap)
     }
 }
 
-void next_flag(char const *fmt, va_list ap)
+int next_flag(char const *fmt, va_list ap, int i)
 {
-    for (int i = 0; fmt[i] != '\0'; i++) {
-        if (fmt[i] == '%') {
-            i++;
-            switch(fmt[i]) {
-            case 'i' : my_put_nbr(va_arg(ap, int));
-                break;
-            case 'o' : convert_base(8, va_arg(ap, int), 1);
-                break;
-            case 'u' : my_put_nbr(va_arg(ap, int));
-                break;
-            case 'x' : convert_base(16, va_arg(ap, int), 2);
-                break;
-            case 'X' : convert_base(16, va_arg(ap, int), 3);
-                break;
-            case 'p' : convert_base(16, va_arg(ap, int), 4);
-                break;
-            }
-        }
+    switch(fmt[i]) {
+    case 'u' : my_put_nbr(va_arg(ap, int));
+        break;
+    case 'x' : convert_base(16, va_arg(ap, int), 2);
+        break;
+    case 'X' : convert_base(16, va_arg(ap, int), 3);
+        break;
+    case 'p' : convert_base(16, va_arg(ap, int), 4);
+        break;
     }
+    return (0);
 }
 
-void gest_flag(char const *fmt, va_list ap)
+void gest_flag(char const *fmt, va_list ap, int i)
 {
-    for (int i = 0; fmt[i] != '\0'; i++) {
-        if (fmt[i] == '%') {
-            i++;
-            switch(fmt[i]) {
-            case 's' : my_putstr(va_arg(ap, char *));
-                break;
-            case 'd' : my_put_nbr(va_arg(ap, int));
-                break;
-            case 'c' : my_putchar((char) va_arg(ap, int));
-                break;
-            case 'b' : convert_base(2, va_arg(ap, int), 0);
-                break;
-            case 'S' : nprint(ap);
-                break;
-            case '%' : my_putchar('%');
-                break;
-            }
-        }
+    switch(fmt[i]) {
+    case 's' : my_putstr(va_arg(ap, char *));
+        break;
+    case 'd' : my_put_nbr(va_arg(ap, int));
+        break;
+    case 'c' : my_putchar((char) va_arg(ap, int));
+        break;
+    case 'b' : convert_base(2, va_arg(ap, int), 0);
+        break;
+    case 'S' : nprint(ap);
+        break;
+    case '%' : my_putchar('%');
+        break;
+    case 'i' : my_put_nbr(va_arg(ap, int));
+        break;
+    case 'o' : convert_base(8, va_arg(ap, int), 1);
+        break;
     }
-    next_flag(fmt, ap);
+    next_flag(fmt, ap, i);
 }
 
 void display(char const *fmt, va_list ap)
@@ -92,7 +83,7 @@ void display(char const *fmt, va_list ap)
             my_putchar(fmt[i]);
         if (fmt[i] == '%') {
             i++;
-            gest_flag(fmt, ap);
+            gest_flag(fmt, ap, i);
         }
     }
 }
