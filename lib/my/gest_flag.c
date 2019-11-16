@@ -81,6 +81,8 @@ void display(char const *fmt, va_list ap)
     for (int i = 0; fmt[i] != '\0'; i++) {
         if (fmt[i] >= ' ' && fmt[i] < '%' || fmt[i] <= 127 && fmt[i] > '%')
             my_putchar(fmt[i]);
+        if (fmt[i] == '\n')
+            my_putchar('\n');
         if (fmt[i] == '%') {
             i++;
             gest_flag(fmt, ap, i);

@@ -84,3 +84,21 @@ Test(my_printf, simple_hexa_flagp, .init = redirect_all_std)
     my_printf("%p", 42);
     cr_assert_stdout_eq_str("0x2a");
 }
+
+Test(my_printf, mix_string_and_number, .init = redirect_all_std)
+{
+    my_printf("%s %d","hello world", 42);
+    cr_assert_stdout_eq_str("hello world 42");
+}
+
+Test(my_printf, double_string, .init = redirect_all_std)
+{
+    my_printf("%s%s", "he", "llo" );
+    cr_assert_stdout_eq_str("hello");
+}
+
+Test(my_printf, triple_flags, .init = redirect_all_std)
+{
+    my_printf("%d %p %s", 42, 42, "hey");
+    cr_assert_stdout_eq_str("42 0x2a hey");
+}
