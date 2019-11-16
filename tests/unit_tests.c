@@ -84,4 +84,3 @@ Test(my_printf, simple_hexa_flagp, .init = redirect_all_std)
     my_printf("%p", 42);
     cr_assert_stdout_eq_str("0x2a");
 }
-
