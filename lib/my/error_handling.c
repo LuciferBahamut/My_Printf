@@ -9,7 +9,7 @@
 
 int other_flag(char const *fmt, int i)
 {
-    switch(fmt[i]) {
+    switch (fmt[i]) {
     case 'u' : return (0);
         break;
     case 'x' : return (0);
@@ -24,7 +24,7 @@ int other_flag(char const *fmt, int i)
 
 int first_flag(char const *fmt, int i)
 {
-    switch(fmt[i]) {
+    switch (fmt[i]) {
     case 'd' : return (0);
         break;
     case 's' : return (0);

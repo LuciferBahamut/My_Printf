@@ -40,7 +40,7 @@ void nprint(va_list ap)
 
 int next_flag(char const *fmt, va_list ap, int i)
 {
-    switch(fmt[i]) {
+    switch (fmt[i]) {
     case 'u' : my_put_nbr(va_arg(ap, int));
         break;
     case 'x' : convert_base(16, va_arg(ap, int), 2);
@@ -55,7 +55,7 @@ int next_flag(char const *fmt, va_list ap, int i)
 
 void gest_flag(char const *fmt, va_list ap, int i)
 {
-    switch(fmt[i]) {
+    switch (fmt[i]) {
     case 's' : my_putstr(va_arg(ap, char *));
         break;
     case 'd' : my_put_nbr(va_arg(ap, int));

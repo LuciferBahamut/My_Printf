@@ -29,7 +29,7 @@ char *convert_hexa(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
-        switch(result[i]) {
+        switch (result[i]) {
         case ':' : result[i] = 'a';
             break;
         case ';' : result[i] = 'b';
@@ -52,7 +52,7 @@ char *convert_hexa_maj(int const base, int nb, char *result)
 {
     for (int i = 0; nb != 0; i++) {
         result[i] = (nb % base) + '0';
-        switch(result[i]) {
+        switch (result[i]) {
         case ':' : result[i] = 'A';
             break;
         case ';' : result[i] = 'B';
@@ -76,7 +76,7 @@ void convert_base(int const base, int nb, int i)
     char *result = malloc(nb + 1);
     char *dis = "0x";
 
-    switch(i) {
+    switch (i) {
     case 0 : convert_binary(base, nb, result);
         break;
     case 1 : convert_octal(base, nb, result);
