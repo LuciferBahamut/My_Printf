@@ -11,6 +11,8 @@ int convert_octal_i(int nb)
 {
     int result = 0;
 
+    if (nb < 0)
+        return (84);
     for (int base = 8; nb != 0; nb /= base) {
         result = (nb % base);
     }

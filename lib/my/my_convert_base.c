@@ -71,11 +71,12 @@ char *convert_hexa_maj(int const base, int nb, char *result)
     return (result);
 }
 
-void convert_base(int const base, int nb, int i)
+void convert_base(int const base, int vl, int i)
 {
+    int nb = unsigned_number(vl); 
     char *result = malloc(nb + 1);
     char *dis = "0x";
-
+    
     switch (i) {
     case 0 : convert_binary(base, nb, result);
         break;
@@ -86,10 +87,9 @@ void convert_base(int const base, int nb, int i)
     case 3 : convert_hexa_maj(base, nb, result);
         break;
     case 4 : convert_hexa(base, nb, result);
+        my_putstr(dis);
         break;
     }
-    if (i == 4)
-        my_putstr(dis);
     my_putstr(my_revstr(result));
     free(result);
 }

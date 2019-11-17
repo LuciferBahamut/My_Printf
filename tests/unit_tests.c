@@ -102,3 +102,27 @@ Test(my_printf, triple_flags, .init = redirect_all_std)
     my_printf("%d %p %s", 42, 42, "hey");
     cr_assert_stdout_eq_str("42 0x2a hey");
 }
+
+Test(my_printf, neg_hexa_flagX, .init = redirect_all_std)
+{
+    my_printf("%X", -42);
+    cr_assert_stdout_eq_str("2A");
+}
+
+Test(my_printf, neg_hexa_flagx, .init = redirect_all_std)
+{
+    my_printf("%x", -42);
+    cr_assert_stdout_eq_str("2a");
+}
+
+Test(my_printf, neg_binary_flagb, .init = redirect_all_std)
+{
+    my_printf("%b", -42);
+    cr_assert_stdout_eq_str("101010");
+}
+
+Test(my_printf, neg_octacl_flago, .init = redirect_all_std)
+{
+    my_printf("%o", -42);
+    cr_assert_stdout_eq_str("52");
+}

@@ -22,5 +22,6 @@ int error_handling(char const *fmt);
 void display(char const *fmt, va_list ap);
 char *my_revstr(char *str);
 void convert_base(int const base, int nb, int i);
+int unsigned_number(int nb);
 
 #endif
