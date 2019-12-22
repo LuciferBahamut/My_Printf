@@ -73,10 +73,10 @@ char *convert_hexa_maj(int const base, int nb, char *result)
 
 void convert_base(int const base, int vl, int i)
 {
-    int nb = unsigned_number(vl); 
+    int nb = unsigned_number(vl);
     char *result = malloc(nb + 1);
     char *dis = "0x";
-    
+
     switch (i) {
     case 0 : convert_binary(base, nb, result);
         break;
